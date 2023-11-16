@@ -47,6 +47,7 @@ namespace CSCI213_Assignment4
                     // check credentials and redirect if valid
                     if (Login1.Password == password)
                     {
+                        FormsAuthentication.SetAuthCookie(Login1.UserName, true);
                         if (userType == "Member")
                             Response.Redirect("~/Assignment4Work/member.aspx", true);
                         else if (userType == "Instructor")
