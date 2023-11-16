@@ -10,7 +10,7 @@
     <p>
         <strong>Sections</strong></p>
     <p>
-        <asp:GridView ID="gvSections" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="237px" Width="488px">
+        <asp:GridView ID="gvSections" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" Height="77px" Width="531px">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
