@@ -24,4 +24,7 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
     </p>
+    <p>
+        <asp:LoginStatus ID="LoginStatus1" runat="server" OnLoggingOut="LoginStatus1_LoggingOut" />
+    </p>
 </asp:Content>
