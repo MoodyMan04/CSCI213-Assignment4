@@ -10,11 +10,11 @@ namespace CSCI213_Assignment4.Assignment4Work
 {
     public partial class administrator : System.Web.UI.Page
     {
+        // get relative path to database
+        string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            // get relative path to database
-            string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
-
             // connect to database
             using (var db = new KarateSchoolDataContextDataContext(connString))
             {
@@ -58,6 +58,39 @@ namespace CSCI213_Assignment4.Assignment4Work
             //add data to the GridView
             InstructorGridView.DataSource = result;
             InstructorGridView.DataBind();
+        }
+
+        protected void btnAssign_Click(object sender, EventArgs e)
+        {
+            // connect to database
+            using (var db = new KarateSchoolDataContextDataContext(connString))
+            {
+                try
+                {
+                    //Create Section
+                    Section newSec = new Section
+                                    {
+                                    SectionName = txtSectionName.Text,
+                                    SectionStartDate = Convert.ToDateTime(txtStartDate.Text),
+                                    Member_ID = Convert.ToInt32(txtAssignMemID.Text),
+                                    Instructor_ID = Convert.ToInt32(txtAssignInID.Text),
+                                    SectionFee = Convert.ToDecimal(txtCost.Text)
+                                     };
+
+                    //Section is added to Database
+                    db.Sections.InsertOnSubmit(newSec);
+                    db.SubmitChanges();
+
+                    //Error label is hidden
+                    lblAssignError.Visible = false;
+                }
+                catch(Exception ex)
+                {
+                    //Displays error label
+                    lblAssignError.Visible = true;
+                }
+                
+            }
         }
     }
 }

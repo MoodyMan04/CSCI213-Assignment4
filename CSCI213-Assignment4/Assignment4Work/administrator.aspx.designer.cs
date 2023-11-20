@@ -60,6 +60,15 @@ namespace CSCI213_Assignment4.Assignment4Work
         protected global::System.Web.UI.WebControls.Button btnDelUser;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// txtSectionName control.
         /// </summary>
         /// <remarks>
@@ -112,5 +121,14 @@ namespace CSCI213_Assignment4.Assignment4Work
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAssign;
+
+        /// <summary>
+        /// lblAssignError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAssignError;
     }
 }

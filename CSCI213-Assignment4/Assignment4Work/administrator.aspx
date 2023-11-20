@@ -5,6 +5,8 @@
         <asp:LoginStatus ID="LoginStatus1" runat="server" />
     </p>
     <p>
+        Members</p>
+    <p>
         <asp:GridView ID="MemberGridView" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#7C6F57" />
@@ -20,7 +22,7 @@
         </asp:GridView>
     </p>
     <p>
-&nbsp;
+&nbsp;Instructors
         <asp:GridView ID="InstructorGridView" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <EditRowStyle BackColor="#2461BF" />
@@ -48,6 +50,9 @@
         <asp:Button ID="btnDelUser" runat="server" Text="Delete" />
     </p>
     <p>
+        <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="Invalid UserID"></asp:Label>
+    </p>
+    <p>
         Assign Member to Section</p>
     <p>
         Section Name:&nbsp;&nbsp;&nbsp;&nbsp;
@@ -65,8 +70,9 @@
         Cost:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtCost" runat="server" TextMode="Number"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnAssign" runat="server" Text="Assign" />
+        <asp:Button ID="btnAssign" runat="server" Text="Assign" OnClick="btnAssign_Click" />
     </p>
     <p>
-        &nbsp;</p>
+        <asp:Label ID="lblAssignError" runat="server" ForeColor="Red" Text="Invalid Input, Member Not Assigned to a Section" Visible="False"></asp:Label>
+    </p>
 </asp:Content>
