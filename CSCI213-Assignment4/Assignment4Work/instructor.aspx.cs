@@ -125,10 +125,6 @@ namespace CSCI213_Assignment4.Assignment4Work
 
         protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Session.Clear();
-            Session.RemoveAll();
-            Session.Abandon();
-            Session.Abandon();
             FormsAuthentication.SignOut();
             Response.Redirect("logon.aspx", true);
         }
