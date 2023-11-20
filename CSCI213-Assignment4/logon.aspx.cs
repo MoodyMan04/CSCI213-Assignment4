@@ -49,7 +49,7 @@ namespace CSCI213_Assignment4
                     {
                         FormsAuthentication.SetAuthCookie(Login1.UserName, true);
                         if (userType == "Member")
-                            Response.Redirect("~/Assignment4Work/member.aspx", true);
+                            Response.Redirect("~/Assignment4Work/Member.aspx", true);
                         else if (userType == "Instructor")
                             Response.Redirect("~/Assignment4Work/instructor.aspx", true);
                         else if (userType == "Administrator")
