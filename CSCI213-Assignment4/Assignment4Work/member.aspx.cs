@@ -12,21 +12,6 @@ namespace CSCI213_Assignment4.Assignment4Work
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Validates user type
-            if (Session.Count != 0)
-            {
-                if (HttpContext.Current.Session["userType"].ToString().Trim() != "Member")
-                {
-                    Session.Clear();
-                    Session.RemoveAll();
-                    Session.Abandon();
-                    Session.Abandon();
-                    FormsAuthentication.SignOut();
-                    Response.Redirect("logon.aspx", true);
-                }
-            }
-
-
             // get relative path to database
             string connString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\KarateSchool.mdf;Integrated Security=True;Connect Timeout=30";
 
@@ -39,7 +24,7 @@ namespace CSCI213_Assignment4.Assignment4Work
                     setNames(db, UID);
                     setGridView(db, UID);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //error
                 }
@@ -96,10 +81,6 @@ namespace CSCI213_Assignment4.Assignment4Work
 
         protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Session.Clear();
-            Session.RemoveAll();
-            Session.Abandon();
-            Session.Abandon();
             FormsAuthentication.SignOut();
             Response.Redirect("logon.aspx", true);
         }
