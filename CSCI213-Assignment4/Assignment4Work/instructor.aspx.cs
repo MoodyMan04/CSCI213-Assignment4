@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.Services.Protocols;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -42,7 +43,7 @@ namespace CSCI213_Assignment4.Assignment4Work
 
             var result1 = (from user in db.NetUsers
                            where user.UserName == userName
-                           select user.UserID).First();
+                           select user.UserID).Single();
 
             return Convert.ToInt32(result1);
         }
@@ -52,11 +53,11 @@ namespace CSCI213_Assignment4.Assignment4Work
             // get first and last name from database based on user id
             var result1 = (from instructor in db.Instructors
                            where instructor.InstructorID == userID
-                           select instructor.InstructorFirstName).First();
+                           select instructor.InstructorFirstName).Single();
 
             var result2 = (from instructor in db.Instructors
                            where instructor.InstructorID == userID
-                           select instructor.InstructorLastName).First();
+                           select instructor.InstructorLastName).Single();
 
             // display name
             lblFirstName.Text = Convert.ToString(result1);
@@ -93,18 +94,18 @@ namespace CSCI213_Assignment4.Assignment4Work
                 // get member id of section
                 var result3 = (from section in db.Sections
                                where section.SectionID == sectionIDs[i]
-                               select section.Member_ID).First();
+                               select section.Member_ID).Single();
 
                 int memberID = Convert.ToInt32(result3);
 
                 // get member first and last name from member id
                 var result4 = (from member in db.Members
                                where member.Member_UserID == memberID
-                               select member.MemberFirstName).First();
+                               select member.MemberFirstName).Single();
 
                 var result5 = (from member in db.Members
                                where member.Member_UserID == memberID
-                               select member.MemberLastName).First();
+                               select member.MemberLastName).Single();
 
                 string memberFirstName = Convert.ToString(result4);
                 string memberLastName = Convert.ToString(result5);
@@ -120,6 +121,16 @@ namespace CSCI213_Assignment4.Assignment4Work
             // add data to grid view
             gvSections.DataSource = dt;
             gvSections.DataBind();
+        }
+
+        protected void LoginStatus1_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Session.Clear();
+            Session.RemoveAll();
+            Session.Abandon();
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            Response.Redirect("logon.aspx", true);
         }
     }
 }
