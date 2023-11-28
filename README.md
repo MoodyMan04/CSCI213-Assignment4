@@ -6,7 +6,9 @@ This project demonstrates the following:
 - A Microsoft SQL database with several tables
 - A link between the database and visual studio
 - Several webpages to navigate the database and modify it, including:
- - A logon page
- - A page for members, using a select statement in a gridview to display info relevent to current user
- - A page for instructors, using a select statement in a gridview to display info relevent to current user
- - A page for admin, using select statements to display info from database, as well as insert into statements, update statements, and delete statements to modify the database.
+    - A logon page
+    - A page for members, using a select statement in a gridview to display info relevent to current user
+    - A page for instructors, using a select statement in a gridview to display info relevent to current user
+    - A page for admin, using select statements to display info from database, as well as insert into statements, update statements, and delete statements to modify the database
+
+ This project was done during the 2023 Fall Semester in CSCI213 at NDSU
