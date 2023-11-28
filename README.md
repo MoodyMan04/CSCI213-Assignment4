@@ -1,8 +1,9 @@
 # CSCI213-Assignment4
 Assignment 4 in CSCI213: A .ASP.Net Framework Website for a Karate School Database
-Created within Visual Studio
 
-This project demonstrates the following:
+Created within Visual Studio using the Web Forms template
+
+This team project demonstrates the following:
 - A Microsoft SQL database with several tables
 - A link between the database and visual studio
 - Several webpages to navigate the database and modify it, including:
